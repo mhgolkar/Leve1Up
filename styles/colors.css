@@ -1,0 +1,28 @@
+
+/* Leve1Up */
+/* Color Palette */
+
+:root {
+/* general ui */
+	--color-0: rgb(0, 0, 0);
+	--color-1: rgb(30, 30, 30);
+	--color-1-fifty:  rgba(30, 30, 30, 0.5);
+	--color-2: rgb(255, 252, 222);
+	--color-3: rgb(255, 206, 97);
+	--color-4: rgb(49, 49, 49);
+	--color-4-eighty: rgba(49, 49, 49, 0.8);
+	--color-4-even: rgb(40, 40, 40);
+	--color-5: rgb(18, 226, 176);
+	--color-6: rgb(181, 181, 181);
+	--color-7: rgb(142, 117, 64);
+/* emphasis */;
+	--color-a: rgb(0, 255, 152);
+	--color-b: rgb(37, 244, 227);
+	--color-c: rgb(255, 214, 0);
+	--color-d: rgb(254, 142, 57);
+	--color-e: rgb(255, 115, 0);
+	--color-f: rgb(255, 69, 0);
+	--color-h: rgb(46, 126, 247);
+	--color-grr: rgb(0, 150, 0);
+	--color-err: rgb(255, 46, 46);
+}
