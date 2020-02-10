@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Leve1Up</title>
+	<link rel="icon" href="./icon.svg">
+	<!-- modules -->
+	<link rel="stylesheet" href="./node_modules/normalize.css/normalize.css"><!-- normalize.css -->
+	<link rel="stylesheet" href="./node_modules/lato-font/css/lato-font.css"><!-- lato font -->
+	<script src="./node_modules/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script><!-- ace editor -->
+	<link rel="stylesheet" href="./node_modules/tags-input/tags-input.css"><!-- tags-input -->
+	<script src="./node_modules/tags-input/tags-input.js"></script>
+	<!-- styles -->
+	<link rel="stylesheet" href="./styles/colors.css">
+	<link rel="stylesheet" href="./styles/main.css">
+	<link rel="stylesheet" href="./styles/details-misc.css">
+	<link rel="stylesheet" href="./styles/details-connection.css">
+	<link rel="stylesheet" href="./styles/details-editor.css">
+	<!-- scripts -->
+	<script language="javascript" type="text/javascript" src="./configs.js"></script>
+	<script language="javascript" type="text/javascript" src="./scripts/client-communication.js"></script>
+	<script language="javascript" type="text/javascript" src="./scripts/client-db-editor.js"></script>
+	<script language="javascript" type="text/javascript" src="./scripts/client-query-input.js"></script>
+	<script language="javascript" type="text/javascript" src="./scripts/client-ui.js"></script>
+	<script language="javascript" type="text/javascript" src="./scripts/client-main.js"></script>
+</head>
+<body>
+	<div id="notification" data-type="info" data-active="false">
+		<div id="notification-box">
+			<p id="notification-title">Unknown Error!</p>
+			<p id="notification-message">We Don't Know What Exactly Went Wrong.</p>
+			<p id="notification-confirm" class="button">OK</p>
+			<p id="notification-dismiss" class="button">Dismiss</p>
+		</div>
+		<div id="notifictaion-overlay"></div>
+	</div>
+	<div id="connection-page" data-active="true">
+		<img id="main-logo" src="./icon.svg">
+		<h1>Leve1Up</h1>
+		<h2>Level/Couch DB GUI <span>v1.0.0</span></h2>
+		<form id="connection-form">
+			<fieldset>
+				<legend>Connection</legend>
+				<label>Local :</label>
+				<input id="connection-local-path" type="text" placeholder="/path/to/local-db-folder">
+				<br><label>Network :</label>
+				<input id="connection-network-url" type="url" placeholder="http://db-host:port">
+				<br><label>Username :</label>
+				<input id="connection-username" type="text" autocomplete="username">
+				<br><label>Password :</label>
+				<input id="connection-password" type="password" autocomplete="current-password">
+			</fieldset>
+			<div id="open-connection">
+				<input id="create-db-on-open" type="checkbox">
+				<label for="create-db-on-open">Create DB If Doesn't Exist</label>
+				<input type="button" id="open-connection-button" value="OPEN">
+			</div>
+		</form>
+	</div>
+	<div id="db-editor" data-active="false">
+		<div id="processing-indicator" data-active="false">Listing Documents . . .</div>
+		<div id="query-locker" data-active="false"></div>
+		<div id="query-input-editor-subpage" data-active="false">
+			<div id="query-input-editor">
+				<p>Query Docs<p>
+					<div id="query-selector-eternal-one"> <!-- this element is used to be the generator for added selectors to the query -->
+						<fieldset>
+							<legend>Selector</legend>
+							<input id="query-selector-field" type="text" placeholder="Field">
+							<select id="query-selector-operator">
+								<option value="$lt" title="Match fields “less than” this one.">$lt</option>
+								<option value="$gt" title="Match fields “greater than” this one.">$gt</option>
+								<option value="$lte" title="Match fields “less than or equal to” this one.">$lte</option>
+								<option value="$gte" title="Match fields “greater than or equal to” this one.">$gte</option>
+								<option value="$eq" title="Match fields equal to this one.">$eq</option>
+								<option value="$ne" title="Match fields not equal to this one.">$ne</option>
+								<option value="$exists" title="True if the field should exist, false otherwise.">$exists</option>
+								<option value="$type" title="One of: “null”, “boolean”, “number”, “string”, “array”, or “object”.">$type</option>
+								<option value="$in" title="The document field must exist in the list provided." selected>$in</option>
+								<option value="$nin" title="The document field must not exist in the list provided.">$nin</option>
+								<option value="$all" title="Matches an array value if it contains all the elements of the argument array.">$all</option>
+								<option value="$size" title="Special condition to match the length of an array field in a document.">$size</option>
+								<option value="$regex" title="A regular expression pattern to match against the document field.">$regex</option>
+								<!--
+								<option value="$mod" title="Matches documents where (field % Divisor == Remainder) is true, and only when the document field is an integer.">$mod</option>
+								<option value="$elemMatch" title="Matches all documents that contain an array field with at least one element that matches all the specified query criteria.">$elemMatch</option>
+								 -->
+							</select>
+							<input id="query-selector-criteria-textual" class="query-selector-criteria" type="text" placeholder="Value" data-active="false">
+							<input id="query-selector-criteria-numeral" class="query-selector-criteria" type="number" value="0" placeholder="Integer" data-active="false">
+							<input id="query-selector-criteria-array" class="query-selector-criteria" type="tags" placeholder="List" data-active="true">
+							<select id="query-selector-criteria-for-exists" class="query-selector-criteria" data-active="false">
+								<option value="true">True</option>
+								<option value="false">False</option>
+							</select>
+							<select id="query-selector-criteria-for-type" class="query-selector-criteria" data-active="false">
+								<option value="null">null</option>
+								<option value="boolean">boolean</option>
+								<option value="number">number</option>
+								<option value="string">string</option>
+								<option value="array">array</option>
+								<option value="object">object</option>
+							</select>
+							<div id="query-selector-add-new" class="button">+</div>
+						</fieldset>
+						<label for="query-selector-match">Match:</label>
+						<select id="query-selector-match">
+							<option value="$and" title="Matches if all the selectors in the array match.">$and</option>
+							<option value="$or" title="Matches if any of the selectors in the array match. All selectors must use the same index.">$or</option>
+							<option value="$nor" title="Matches if none of the selectors in the array match.">$nor</option>
+							<option value="$not" title="Matches if the given selector does not match.">$not</option>
+						</select>
+						<label for="query-selector-limit">Limit:</label>
+						<input id="query-selector-limit" type="number" value="0">
+						<label for="query-selector-skip">Skip:</label>
+						<input id="query-selector-skip" type="number" value="0">
+					</div>
+					<p>Request:</p>
+					<div id="query-input-selectors-print">
+						<div id="query-selector-manual-editor"></div>
+					</div>
+					<span id="query-back" class="button obstinate">BACK</span>
+					<span id="query-reset" class="button red obstinate">RESET</span>
+					<span id="query-proceed" class="button blue obstinate">PROCEED</span>
+			</div>
+		</div>
+		<div id="db-editor-grid">
+			<div id="head">
+				<img src="./icon.svg">
+				<p id="leve1Up-sign">Leve1Up</p>
+				<p id="db-name">Unknown</p>
+				<p id="action-close-db" class="button red">CLOSE</p>
+				<p id="action-compact-db" class="button">COMPACT</p>
+				<p id="action-refresh-db" class="button blue">REFRESH DB</p>
+			</div>
+			<div id="left-top">
+				<input id="docs-list-filter" placeholder="Keyword/RegExp" type="text">
+			</div>
+			<div id="right-top">
+				<p id="action-refresh-list" class="button green">REFRESH</p>
+				<p id="action-query-db" class="button">QUERY</p>
+				<!-- Maybe later! <p id="action-download-db" class="button">TRANSFER DB</p> -->
+			</div>
+			<div id="left-bottom">
+				<p id="docs-stats">0 of 0 / 0</p>
+				<div id="docs-list" data-shown-count="0">
+					<!-- <p class="doc" data-open="false" data-visible="ture" title="the_doc_id_xyz_2">the_doc_id_xyz_2</p> -->
+				</div>
+				<div id="no-doc-listed">No Docs!</div>
+			</div>
+			<div id="right-middle">
+				<p id="revision-rotator" data-active="false">
+					<span id="rev-action-oldest"><img src="./resources/end-arrow.svg"></span>
+					<span id="rev-action-previous"><img src="./resources/step-arrow.svg"></span>
+					<span id="rev-current-view">No Doc Selected.</span>
+					<span id="rev-action-next"><img src="./resources/step-arrow.svg"></span>
+					<span id="rev-action-latest"><img src="./resources/end-arrow.svg"></span>
+				</p>
+				<p id="action-delete-doc" class="button red">DEL</p>
+				<p id="action-new-doc" class="button blue">NEW</p>
+				<p id="action-save-doc" class="button green">SAVE</p>
+			</div>
+			<div id="right-bottom">
+				<div id="code-editor-lock" data-active="false">
+					<div>Please Wait ...</div>
+				</div>
+				<div id="code-editor"></div>
+			</div>
+		</div>
+	</div>
+	<div id="connection-spinner" data-active="false">
+		<img id="spinner-logo" src="./icon.svg">
+		<p>Processing</p><span>...</span>
+	</div>
+	<div id="branding">
+		<a href="https://github.com/mhgolkar" target="_blank">♥ Mor. H. Golkar</a>
+	</div>
+</body>
+</html>

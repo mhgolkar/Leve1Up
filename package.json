@@ -1,0 +1,39 @@
+{
+  "name": "Leve1Up",
+  "version": "1.0.0",
+  "description": "A GUI for NoSQL-DB management (LevelDB/CouchDB) that shows up in Browser; based On NodeJs, ExpressJs, PouchDB and some taste.",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhgolkar/Leve1Up.git"
+  },
+  "scripts": {
+    "test": "echo \"No Test is Specified Yet!\" && exit 1"
+  },
+  "keywords": [
+    "LevelDB",
+    "CouchDB",
+    "NoSQL",
+    "Browser",
+    "GUI"
+  ],
+  "author": "Morteza H. Golkar 1988.7.25",
+  "license": "MIT",
+  "engines": {
+    "node": "^v10.16.2",
+    "npm": "^6.10.3"
+  },
+  "dependencies": {
+    "ace-builds": "^1.4.8",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lato-font": "^3.0.0",
+    "normalize.css": "^8.0.1",
+    "pouchdb": "^7.0.0",
+    "pouchdb-adapter-leveldb": "^7.1.1",
+    "pouchdb-debug": "^7.0.0",
+    "pouchdb-find": "^7.0.0",
+    "serve-static": "^1.14.1",
+    "tags-input": "^1.1.1"
+  }
+}
