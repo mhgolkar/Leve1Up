@@ -2,7 +2,7 @@
 # [![](./resources/icon-small.png)]() Leve1Up
 
 ## Leve1Up
-**NoSQL ( CouchDB, LevelDB ) Graphical User Interface**
+**NoSQL ( CouchDB, LevelDB ) database management Graphical User Interface**
 
 * Shows up in Modern Browsers (doesn't need atom-shell, etc.)
 * Developed on top of NodeJs, ExpressJs, PouchDB ...
