@@ -1,0 +1,156 @@
+
+/* Leve1Up */
+/* Details - Connection */
+
+/* connection page */
+
+#connection-page {
+	text-align: center;
+	margin: 0; padding: 0;
+	display: none;
+	margin: 0 5vw;
+	width: 90vw;
+	padding: 2rem 2rem 0 2rem;
+	z-index: 1;
+}
+#connection-page[data-active="true"] { display: block; }
+#main-logo {
+	width: 100%;
+	height: 20vh;
+	object-fit: contain;
+}
+#connection-page h1 {
+	font-weight: 900;
+	font-size: 2rem;
+}
+#connection-form {
+	text-align: left;
+	display: inline-block;
+	max-width: 700px;
+}
+#connection-form fieldset {
+	padding: 1rem 0;
+	border-color: var(--color-4);
+}
+#connection-form fieldset legend {
+	padding: 0 1rem;
+	margin-left: 25%;
+	font-weight: 900;
+	color: var(--color-7);
+}
+#connection-form fieldset > label {
+	display: inline-block;
+	width: 20%;
+	margin-left: 5%;
+	font-weight: 700;
+	color: var(--color-6);
+}
+#connection-form fieldset > input {
+	width: 60%;
+	font-weight: 700;
+	font-size: 0.9rem;
+	border-color: var(--color-7);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0;
+	background-color: var(--color-4-even);
+}
+#connection-form fieldset > input:focus {
+	border-color: var(--color-3);
+}
+#open-connection {
+	text-align: right;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	user-select: none;
+}
+#create-db-on-open {
+	display: none;
+}
+input[type="checkbox"] + label {
+	display: inline-block;
+	background-color: var(--color-4);
+	color: var(--color-3);
+	padding: 0.5rem 1rem;
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: all 0.125s ease-in-out;
+}
+input[type="checkbox"] + label:hover{
+	background-color: var(--color-3);
+	color: var(--color-4);
+}
+input[type="checkbox"] + label:hover:before {
+	border-color: var(--color-4);
+}
+input[type="checkbox"] + label:before{
+	content: '';
+	display: inline-block;
+	width: 1rem;
+	height: 1rem;
+	vertical-align: bottom;
+	border-radius: 100%;
+	margin: 0 0.5rem 0 0;
+	background: transparent;
+	border-color: var(--color-3);
+	border-width: 0.125rem;
+	border-style: solid;
+	transition: all 0.75s ease-in-out;
+}
+input[type="checkbox"]:checked + label[for="create-db-on-open"]:hover:before {
+	background-color: var(--color-4);
+	color: var(--color-4);
+}
+input[type="checkbox"]:checked + label:before {
+	background-color: var(--color-3);
+	border-color: var(--color-4);
+}
+#open-connection-button{
+	display: inline-block;
+}
+
+/* connecting spinner */
+
+#connection-spinner {
+	display: none;
+	text-align: center;
+	width: 100vw;
+	padding-top: 25vh;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	user-select: none;
+	z-index: 3;
+}
+#connection-spinner[data-active="true"] { display: inline-block; }
+#connection-spinner img {
+	width: 100%;
+	height: 25vh;
+	object-fit: contain;
+	animation: rainbow 5s infinite ease-in-out;
+}
+@keyframes rainbow { 50% { filter: hue-rotate(180deg); } }
+#connection-spinner p {
+	text-transform: uppercase;
+	margin: 0;
+	font-weight: 900;
+}
+#connection-spinner span {
+	letter-spacing: 0.25rem;
+	padding: 0;
+	margin: 0;
+	font-weight: 900;
+	font-size: 2rem;
+	animation: spanner 1s infinite ease-in-out;
+}
+@keyframes spanner { 50% { filter: opacity(50%); letter-spacing: normal; } }
+
+/* More Mobile Friendly / Responsive Styling */
+
+@media only screen and (orientation: portrait) and (max-device-width: 540px){
+	#connection-form fieldset > label {
+		display: block;
+		width: 90%;
+	}
+	#connection-form fieldset > input {
+		width: 90%;
+	}
+}

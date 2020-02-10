@@ -1,0 +1,86 @@
+
+/* Leve1Up */
+/* Details - Misc */
+
+/* notification */
+
+#notification {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 90vh;
+	margin: 0;
+	padding: 0;
+	z-index: 100;
+	text-align: center;
+	background-color: var(--color-1-fifty)
+}
+#notification[data-active="true"] { display: block; }
+#notification[data-active="true"] { display: block; }
+#notification-box {
+	display: inline-block;
+	--back-color: var(--color-4);
+	--fore-color: var(--color-h);
+	text-align: left;
+	width: 50vw;
+	min-width: 540px;
+	height: auto;
+	margin-top: 15vh;
+	background-color: var(--back-color);
+	padding: 0.75rem 1rem;
+	border-bottom: solid 0.5rem var(--fore-color);
+}
+#notification[data-type="info"] #notification-box, #notification[data-type="info"] .button#notification-confirm { --fore-color: var(--color-5); }
+#notification[data-type="warn"] #notification-box, #notification[data-type="warn"] .button#notification-confirm { --fore-color: var(--color-3); }
+#notification[data-type="error"] #notification-box, #notification[data-type="error"] .button#notification-confirm { --fore-color: var(--color-err); }
+#notification p {
+	margin: 0.5rem 0;
+}
+#notification-title {
+	font-weight: 900;
+	font-size: 1.5rem;
+	letter-spacing: 0.125em;
+	padding: 1rem;
+	padding-bottom: 0;
+}
+#notification-message {
+	font-size: 1.25rem;
+	padding-bottom: 2rem;
+	line-height: 1.25em;
+	padding: 1rem;
+}
+#notification .button {
+	float: right;
+	margin: 1rem 0.5rem;
+}
+#notification .button#notification-dismiss {
+	display: none;
+}
+#notification[data-type="confirm"] #notification-box {
+	--fore-color: var(--color-2);
+}
+#notification[data-type="confirm"] .button#notification-dismiss {
+	display: inline-block;
+	--fore-color: var(--color-2);
+}
+
+/* Branding */
+
+#branding {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transform-origin: top left;
+	transform: rotate(-90deg);
+	margin: 1rem;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	user-select: none;
+	cursor: pointer;
+	z-index: 0;
+}
+#branding a {
+	color: var(--color-4);
+}

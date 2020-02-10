@@ -1,0 +1,256 @@
+
+/* Leve1Up */
+/* Main */
+
+/* General Designof Elements */
+
+:root {
+	--font: 'Lato', monospace, sans-serif;
+	font-family: var(--font);
+	background-color: var(--color-1);
+	color: var(--color-2);
+	font-size: 16px;
+	font-weight: 400;
+	width: 100vw;
+	letter-spacing: 0.0125rem;
+	line-height: 1.15; /* Correct the line height in all browsers */
+	/* to Prevent adjustments of font size after orientation changes in iOS : */
+	/* -webkit-text-size-adjust: 100%; */
+}
+body {
+	padding: 0; margin: 0; /* reset */
+	font-family: var(--font);
+	overflow-x: hidden;
+	box-sizing: border-box;
+	border: none; outline: none;
+}
+div {
+	margin: 0;
+	padding: 0;
+}
+body > :first-child {
+	margin-top: 1rem !important;
+}
+h1 {
+	font-size: 1.5rem;
+	font-weight: 100;
+	margin: 0.5rem 0 0.25rem;
+}
+h2 {
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	font-weight: 300;
+}
+h2 span {
+	font-size: 0.75em;
+	vertical-align: top;
+}
+a {
+	color: var(--color-2);
+	background-color: transparent;
+	text-decoration: none;
+	cursor: pointer;
+	outline: 0;
+}
+form, fieldset, div {
+	width: 100%;
+	box-sizing: border-box;
+	border-color: var(--color-6);
+	border-width: 1px;
+	margin: 0.5rem 0;
+}
+input, button { /* normalize */
+	overflow: visible;
+	text-transform: none;
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+input {
+	margin: 0.25rem 0;
+	box-sizing: content-box;
+}
+input, input::placeholder {
+	font-family: var(--font);
+}
+input::placeholder {
+	color: var(--color-7);
+}
+input[type='text'], input[type='url'], input[type='password']{
+	border: solid 2px var(--color-6);
+	padding: 0.25rem 0.5rem;
+	letter-spacing: 0.125rem;
+	vertical-align: middle;
+	border-radius: 0.25rem;
+	text-align: center;
+}
+input[type='text'], input[type='url'], input[type='password'], input::placeholder {
+	height: 2rem;
+	font-size: 1rem;
+}
+input[type='text'], input[type='url'], input[type='password'] {
+	border-color: var(--color-4);
+	background-color: var(--color-0);
+	color: var(--color-3);
+}
+input[type='button'], input[type='submit'] {
+	font-size: 1rem;
+	font-weight: 900;
+	height: 1.75rem;
+	padding: 0.25rem 0.75rem;
+	border-radius: 0.25rem;
+	border: none;
+	background-color: var(--color-4);
+	color: var(--color-5);
+	cursor: pointer;
+	outline: none;
+}
+input[type='button']::-moz-focus-inner, input[type='button']:active,
+input[type='submit']::-moz-focus-inner, input[type='submit']:active { /* reset */
+	border-style: none;
+	border: none;
+	padding: 0.25rem 0.75rem;
+	outline: none;
+}
+input[type='button']:hover, input[type='submit']:hover {
+	color: var(--color-3);
+}
+input[type='button']:active, input[type='submit']:active {
+	color: var(--color-0);
+	background-color: var(--color-5);
+}
+textarea {
+	display: block;
+	width: 100%;
+	height: 16vh;
+	font-family: inherit;
+	line-height: 1.15;
+	font-size: 0.9rem;
+	margin: 0.25rem 0;
+	padding: 1rem;
+	box-sizing: border-box;
+	border: solid 1px var(--color-6);
+	background-color: var(--color-0);
+	color: var(--color-3);
+	resize: vertical;
+	margin-bottom: 0.75rem;
+	overflow: auto; /* remove the default vertical scrollbar in IE 10+ */
+}
+fieldset {
+	display: block;
+	box-sizing: border-box;
+	margin-top: 0.75rem;
+	border-color: var(--color-6);
+	padding: 0.35em 0.75em 0.625em; /* normalize */
+}
+legend {
+	text-align: left;
+	color: var(--color-6);
+	/* currections mainly for Edge and IE */
+	box-sizing: border-box;
+	color: inherit;
+	display: table;
+	max-width: 100%;
+	padding: 0;
+	white-space: normal;
+}
+/* scrollbars */
+body div {
+	scrollbar-color: var(--color-7) var(--color-1);
+	scrollbar-width: thin;
+}
+body div::-webkit-scrollbar {
+	height: 100%;
+	width: 0.75em;
+}
+body div::-webkit-scrollbar-track-piece, body div::-webkit-scrollbar-track-piece {
+	background-color: var(--color-1);
+}
+body div::-webkit-scrollbar-thumb, body div::-webkit-scrollbar-thumb {
+	background-color: var(--color-7);
+}
+/* breaks */
+br {
+	display: block;
+	width : 100%;
+}
+
+
+.button {
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	user-select: none;
+	cursor: pointer;
+	display: inline-block;
+	--back-color : var(--color-1);
+  --fore-color : var(--color-3);
+	--third-color: var(--color-e);
+	background-color: var(--back-color);
+	border-color: var(--fore-color);
+	border-style: solid;
+	border-width: 0.125rem;
+	padding: 0.75rem 1.5rem;
+	border-radius: 1rem;
+	font-weight: 900;
+	color: var(--fore-color);
+	text-align: center;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+.button:hover{
+	background-color: var(--fore-color);
+	color: var(--back-color);
+}
+.button:active{
+	background-color: var(--third-color);
+	color: var(--back-color);
+	border-color: var(--third-color);
+}
+.button.obstinate {
+	border-style: solid;
+	border-width: 0.125rem;
+	padding: 0.75rem 1.5rem !important;
+	border-radius: 1rem;
+	font-weight: 900;
+	text-align: center;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+select {
+	display: inline-block;
+	--fore-color: var(--color-5);
+	--back-color: var(--color-1);
+	padding: 0.75rem;
+	margin: 0;
+	width: 10rem;
+	height: 3.25rem;
+	font-size: 1rem;
+	text-align: center;
+	text-indent: 5%;
+	color: var(--fore-color);
+	border: 0.125rem solid var(--fore-color);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url('../resources/drop-arrow.svg') 90% / 1rem no-repeat var(--back-color);
+	box-sizing: border-box;
+}
+select option {
+	vertical-align: middle;
+	outline: 0;
+	border: none;
+}
+select:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 var(--fore-color);
+}
+/* IE Fixes */
+select::-ms-expand {
+	display: none;
+}
+
+/* More Mobile Friendly / Responsive Styling */
+@media only screen and (orientation: portrait) and (max-device-width: 480px){
+	/* later ... */
+}
