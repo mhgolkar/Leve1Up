@@ -2,7 +2,7 @@
 		Leve1Up
 		-----------
 		LevelDB/CouchDB GUI
-		v1.0.0 [2020]
+		v1.0.x [2020]
 		-----------
 		Morteza H. Golkar 1988.7.25
 */
