@@ -333,6 +333,7 @@ const compactionAction = function(){
 
 const refreshAll = function(reconnect_default){
 	filter_input.value = '';
+	docs_list_element.innerHTML = '';
 	openDocToEdit(false);
 	docs_all_list = [];
 	docs_queried = [];
