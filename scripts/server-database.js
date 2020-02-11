@@ -69,8 +69,8 @@ const DB =  class extends EventEmitter {
 			return true;
 		};
 
-		this.allDocsList = async function(){
-			let docs_all = this._DB.allDocs({
+		this.allDocsList = async function(args){
+			let docs_all = this._DB.allDocs( args || {
 				include_docs: false,
 				attachments: false,
 				conflicts: false
