@@ -1,7 +1,7 @@
 {
   "name": "Leve1Up",
-  "version": "1.0.0",
-  "description": "A GUI for NoSQL-DB management (LevelDB/CouchDB) that shows up in Browser; based On NodeJs, ExpressJs, PouchDB and some taste.",
+  "version": "1.0.1",
+  "description": "A GUI for NoSQL-DB management (LevelDB, CouchDB) that shows up in Browser; based On NodeJs, ExpressJs, PouchDB and some taste.",
   "main": "main.js",
   "repository": {
     "type": "git",
