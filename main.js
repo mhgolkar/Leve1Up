@@ -64,7 +64,7 @@ const databaseJobs = async function(req, res){
 				result = await connectDB(args);
 				break;
 			case 'list_all_docs':
-				result = await DB.allDocsList();
+				result = await DB.allDocsList(args);
 				break;
 			case 'save_doc':
 				result = await DB.saveDoc(args);
