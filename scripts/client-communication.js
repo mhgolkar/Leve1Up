@@ -77,9 +77,17 @@ const handleConnectionResult = function(response){
 			let loadlimit = CONFIGS.MAX_SIZE_OF_THE_FETCHED_DOCS_ID_LIST_ON_STARTUP;
 			if( Number.isFinite(loadlimit) && loadlimit > 0 && total_docs_count > loadlimit  ){ // less than limit, get them all
 				report += `${CONFIGS.EOL}--------${CONFIGS.EOL}Caution!${CONFIGS.EOL}First  ${CONFIGS.MAX_SIZE_OF_THE_FETCHED_DOCS_ID_LIST_ON_STARTUP}  Docs are getting listed. You can Query more Docs to be listed later. To avoid this limit, edit 'config.js' file.`;
-				sendJson({ action: 'query_db', arguments: { "selector": {}, "limit": loadlimit } }, false);
+				sendJson({
+					action: 'list_all_docs',
+					arguments: {
+						limit: loadlimit,
+						include_docs: false,
+						attachments: false,
+						conflicts: false
+					}
+				}, false);
 			} else {
-				sendJson({ action: 'list_all_docs', arguments: null }, false); // false callback means it's going to main communication handler
+				sendJson({ action: 'list_all_docs', arguments: false }, false); // false callback means it's going to main communication handler
 			}
 			indicate('Fetching Docs List ...');
 		} else {
