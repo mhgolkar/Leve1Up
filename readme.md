@@ -1,6 +1,9 @@
 
 # [![](./resources/icon-small.png)]() Leve1Up
 
+## [ discontinued ]
+This repo is not likely to get any more commitments.
+
 ## Leve1Up
 **A Graphical User Interface for NoSQL ( CouchDB, LevelDB ) database management**
 
